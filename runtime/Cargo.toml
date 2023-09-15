@@ -64,13 +64,18 @@ frame-system-benchmarking = { default-features = false, optional = true, git = "
 hex-literal = { version = "0.4.1", optional = true }
 
 # interstellar
-pallet-ocw-circuits = { default-features = false, git = "https://github.com/Interstellar-Network/pallets", branch = "main" }
+pallet-ocw-circuits = { default-features = false, git = "https://github.com/Interstellar-Network/pallets", branch = "main", version = "^6.0.0" }
 pallet-tx-registry = { default-features = false, git = "https://github.com/Interstellar-Network/pallets", branch = "main" }
 
 [build-dependencies]
 # TEMP https://github.com/paritytech/substrate/pull/13574/files
 # Needed until https://github.com/integritee-network/integritee-node is using: branch = "polkadot-v0.9.43"+
 # We NEED: wasm-opt = "0.112"
+#
+# Need the fixes https://github.com/paritytech/substrate/pull/13804/files
+# To fix "Error: Service(Client(VersionInvalid("cannot deserialize module: UnknownOpcode(192)")))
+#         2023-09-15 11:29:54 Cannot create a runtime error=Other("cannot deserialize module: UnknownOpcode(192)")"
+# cf https://github.com/paritytech/substrate/issues/13636
 substrate-wasm-builder = { git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.43" }
 
 [features]
@@ -113,9 +118,8 @@ std = [
     "pallet-proxy/std",
     "pallet-utility/std",
     "pallet-teeracle/std",
-	# [interstellar]
-	"pallet-ocw-circuits/std",
-	"pallet-tx-registry/std",
+    "pallet-ocw-circuits/std",
+    "pallet-tx-registry/std",
 ]
 runtime-benchmarks = [
     "frame-benchmarking/runtime-benchmarks",
@@ -140,3 +144,4 @@ runtime-benchmarks = [
     "pallet-teeracle/runtime-benchmarks",
     "pallet-sidechain/runtime-benchmarks",
 ]
+circuit-gen-rs = ["pallet-ocw-circuits/circuit-gen-rs"]

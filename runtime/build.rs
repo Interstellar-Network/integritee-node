@@ -5,5 +5,7 @@ fn main() {
 		.with_current_project()
 		.export_heap_base()
 		.import_memory()
+		// TODO?
+		// .enable_feature("js")
 		.build()
 }
