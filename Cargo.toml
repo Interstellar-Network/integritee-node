@@ -18,5 +18,8 @@ members = [
 # pallet-tx-registry = { path = "../pallets/pallets/tx-registry/" }
 
 # [patch."https://github.com/Interstellar-Network/rs-common.git"]
-# http-grpc-client = { path = "../rs-common/http-grpc-client/" }
+# interstellar-http-client = { path = "../rs-common/http-client/" }
+# interstellar-ipfs-client = { path = "../rs-common/ipfs-client-http-req/" }
+# png-utils = { path = "../rs-common/png_utils"
+
 ################################################################################

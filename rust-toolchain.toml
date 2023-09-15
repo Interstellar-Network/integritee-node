@@ -1,4 +1,14 @@
 [toolchain]
-channel = "nightly-2022-10-22"
+# things to take into account:
+# - various substrate-related deps DO NOT build on stable(or beta) b/c #![feature]
+# - teaclave officially only supports: https://github.com/apache/incubator-teaclave-sgx-sdk/blob/master/rust-toolchain
+# - [wallet-app repository] bevy v0.11 REQUIRES Rust 1.70+
+#   relevant b/c 'integritee-node-runtime' is a dep of 'integritee-cli'["worker" repository]
+# - "error: package `clap v4.4.1` cannot be built because it requires rustc 1.70.0 or newer"
+# 2023-04-15: date of the latest "1.70.0-nightly"; after that it is 1.71
+# https://github.com/oxalica/rust-overlay/blob/master/manifests/nightly/2023/2023-05-28.nix
+# -> latest 1.71.0-nightly
+# a good source to check which nightly is which Rust version: https://github.com/oxalica/rust-overlay/tree/master/manifests/nightly/
+channel = "nightly-2023-05-28"
 targets = ["wasm32-unknown-unknown"]
 profile = "default" # include rustfmt, clippy

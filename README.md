@@ -23,7 +23,7 @@ A substrate-based node that maintains a registry of remote attested integritee-s
 #        `[2022-08-29T15:24:24Z ERROR ws::handler] WS Error <Custom(Extrinsic("extrinsic error code 1010: Invalid Transaction: Inability to pay some fees (e.g. account balance too low)"))>`
 #        or `[2022-08-29T15:24:48Z ERROR ws::handler] WS Error <Custom(Extrinsic("extrinsic error code 1012: Transaction is temporarily banned: "))>`
 
-**WIP** `INTERSTELLAR_URI_ROOT_API_CIRCUITS=http://localhost:3000 cargo run --features skip-ias-check,skip-extrinsic-filtering -- --dev --tmp --ws-port 9990 --port 30390 --rpc-port 8990 --enable-offchain-indexing=true --rpc-methods=unsafe`
+**WIP** `cargo run --features skip-ias-check,skip-extrinsic-filtering -- --dev --tmp --ws-port 9990 --port 30390 --rpc-port 8990 --enable-offchain-indexing=true --rpc-methods=unsafe`
 
 ### SUBSTRATE REFERENCE
 
